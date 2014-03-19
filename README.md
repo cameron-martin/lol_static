@@ -1,6 +1,6 @@
 # LolStatic
 
-TODO: Write a gem description
+Fetches static content from the league of legends CDN
 
 ## Installation
 
