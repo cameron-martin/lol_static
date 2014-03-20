@@ -1,8 +1,10 @@
+require 'lol_static'
+
 module LolStatic
   class Item
 
     def self.api_version
-      @api_version ||= LolStatic.api_version('item')
+      LolStatic.api_version('item')
     end
 
     def initialize(item_id)
