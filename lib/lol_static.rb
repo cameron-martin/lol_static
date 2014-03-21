@@ -1,5 +1,6 @@
 require 'lol_static/version'
 require 'lol_static/item'
+require 'lol_static/spell'
 
 
 module LolStatic
