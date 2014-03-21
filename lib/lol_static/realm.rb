@@ -7,8 +7,8 @@ module LolStatic
       realm_data['cdn']
     end
 
-    def api_version(name)
-      realm_data['n'][name.to_s]
+    def api_version(name=nil)
+      name ? realm_data['n'][name.to_s] : realm_data['v']
     end
 
   private

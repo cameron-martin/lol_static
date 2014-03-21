@@ -4,8 +4,8 @@ require 'lol_static/item'
 
 module LolStatic
   class << self
-    def api_version(name)
-      realm.api_version(name)
+    def api_version(*args)
+      realm.api_version(*args)
     end
 
     def base_uri
@@ -14,6 +14,10 @@ module LolStatic
 
     def item(id)
       Item.new(id)
+    end
+
+    def spell(id)
+      Spell.new(id)
     end
 
   private
