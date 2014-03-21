@@ -15,7 +15,7 @@ module LolStatic
       self.class.api_version
     end
 
-    def download_to(path)
+    def download(path)
       open(image_url) do |image|
         File.open(path, 'wb') do |f|
           f.write(image.read)
