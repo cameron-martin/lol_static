@@ -6,9 +6,9 @@ describe LolStatic::Spell do
 
   use_vcr_cassette 'realm'
 
-  let(:id) {  }
+  let(:id) { 'Spell' }
 
-  let(:spell) { LolStatic::Spell.new('Spell') }
+  let(:spell) { LolStatic::Spell.new(id) }
 
   describe '.api_version' do
     it 'returns api version' do
@@ -18,7 +18,7 @@ describe LolStatic::Spell do
 
   describe '#image_url' do
     it 'returns image url' do
-      expect(spell.image_url).to eq('http://ddragon.leagueoflegends.com/cdn/4.4.3/img/spell/Spell.png')
+      expect(spell.image_url).to eq("http://ddragon.leagueoflegends.com/cdn/4.4.3/img/spell/#{id}.png")
     end
   end
 end

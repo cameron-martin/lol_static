@@ -8,7 +8,7 @@ module LolStatic
     end
 
     def api_version(name=nil)
-      name ? realm_data['n'][name.to_s] : realm_data['v']
+      realm_data['n'].has_key?(name.to_s) ? realm_data['n'][name.to_s] : realm_data['v']
     end
 
   private

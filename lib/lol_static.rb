@@ -6,13 +6,6 @@ require 'lol_static/realm'
 
 module LolStatic
   class << self
-    def api_version(*args)
-      realm.api_version(*args)
-    end
-
-    def base_uri
-      realm.base_uri
-    end
 
     def item(id)
       Item.new(id)
@@ -22,10 +15,8 @@ module LolStatic
       Spell.new(id)
     end
 
-  private
-
-    def realm
-      @realm ||= Realm.new
+    def champion(id)
+      Champion.new(id)
     end
 
   end
