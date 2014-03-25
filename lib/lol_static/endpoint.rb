@@ -17,15 +17,19 @@ module LolStatic
     end
 
     def download(path)
-      open(image_url) do |image|
-        File.open(path, 'wb') do |f|
-          f.write(image.read)
-        end
+      File.open(path, 'wb') do |f|
+        f.write(read)
       end
     rescue OpenURI::HTTPError
       false
     else
       true
+    end
+
+    def read
+      open(image_url) do |image|
+        image.read
+      end
     end
 
   end

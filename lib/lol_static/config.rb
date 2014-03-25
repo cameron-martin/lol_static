@@ -1,6 +1,8 @@
+require 'lol_static/realm'
+
 module LolStatic
-  Config = Object.new.tap do |object|
-    class << object
+  module Config
+    class << self
 
       def api_version(*args)
         realm.api_version(*args)
