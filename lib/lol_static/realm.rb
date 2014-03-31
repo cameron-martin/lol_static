@@ -3,6 +3,10 @@ require 'httparty'
 module LolStatic
   class Realm
 
+    def initialize
+      @mutex = Mutex.new
+    end
+
     def base_uri
       realm_data['cdn']
     end
@@ -14,7 +18,9 @@ module LolStatic
   private
 
     def realm_data
-      @realm_data ||= HTTParty.get('http://ddragon.leagueoflegends.com/realms/euw.json').parsed_response
+      @mutex.synchronize do
+        @realm_data ||= HTTParty.get('http://ddragon.leagueoflegends.com/realms/euw.json').parsed_response
+      end
     end
 
   end

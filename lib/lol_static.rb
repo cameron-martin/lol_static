@@ -1,22 +1,6 @@
 require 'lol_static/version'
-require 'lol_static/item'
-require 'lol_static/spell'
-require 'lol_static/champion'
+require 'lol_static/client'
 
 module LolStatic
-  class << self
 
-    def item(id)
-      Item.new(id)
-    end
-
-    def spell(id)
-      Spell.new(id)
-    end
-
-    def champion(id)
-      Champion.new(id)
-    end
-
-  end
 end

@@ -1,19 +1,15 @@
 require 'open-uri'
-require 'lol_static/config'
 
 module LolStatic
   class Endpoint
 
-    def self.api_version
-      LolStatic::Config.api_version(key)
-    end
-
-    def initialize(id)
+    def initialize(id, realm)
       @id = id
+      @realm = realm
     end
 
     def image_url
-      "#{LolStatic::Config.base_uri}/#{self.class.api_version}/img/#{self.class.key}/#{@id}.png"
+      "#{@realm.base_uri}/#{api_version}/img/#{self.class.key}/#{@id}.png"
     end
 
     def download(path)
@@ -30,6 +26,10 @@ module LolStatic
       open(image_url) do |image|
         image.read
       end
+    end
+
+    def api_version
+      @realm.api_version(self.class.key)
     end
 
   end
