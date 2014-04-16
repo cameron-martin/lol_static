@@ -18,7 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+client = LolStatic::Client.new
+
+item = client.item(1234) # Endpoints exist for items, spells, and champions
+
+item.image_url # Returns the url for the image
+item.read # Returns the image
+item.download('/path') # Downloads the image to /path
+```
 
 ## Contributing
 
